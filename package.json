@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@material-design-icons/font": "^0.14.2",
+    "@material-design-icons/svg": "^0.14.2",
+    "@material-symbols/svg-400": "^0.4.2",
+    "material-icons": "^1.13.1",
+    "material-symbols": "^0.4.2"
+  }
+}
