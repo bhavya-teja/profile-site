@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'profile-site'`, () => {
+  it(`should have as title 'Bhavya Teja'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('profile-site');
+    expect(app.title).toEqual('Bhavya Teja');
   });
 
   it('should render title', () => {

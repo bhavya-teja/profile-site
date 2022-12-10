@@ -12,8 +12,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-
-ng build --output-path ../../docs --base-href /profile-site/
+Run `npm run git-build` which runs the following command to update site in github profile. Since pages are using 'docs' as well.
+`ng build --output-path ../../docs --base-href /profile-site/`
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
