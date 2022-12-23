@@ -292,14 +292,13 @@ svg#rocket-smoke {
 }
 }
 
-.name-icon{
-    display:flexbox;
-    scale: 2;
-    padding: 8;
+.name-span{
+    display: inline-block;
 }
 
 .name-title{
-    display:flexbox;
+    display: inline-block;
     scale: 2;
-    padding: 8;
+    padding: 10px;
+    border: 5px;
 }
