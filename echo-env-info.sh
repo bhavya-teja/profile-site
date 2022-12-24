@@ -1,0 +1,7 @@
+echo 'Typescript SPA root for profile in src/profile-site'
+echo 'cd /src/profile-site'
+echo 'For generating a build to update github.io site:'
+echo 'npm run git-build'
+echo 'copy build deliverables from dist of angular to <root>/docs'
+echo 'To run the project:'
+echo 'ng serve'
