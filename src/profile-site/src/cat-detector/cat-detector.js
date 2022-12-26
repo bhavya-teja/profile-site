@@ -1,21 +1,24 @@
-import ml5 from 'ml5';
+//import * as ml5 from 'ml5';
 
-const cocoSSD = ml5.objectDetector('cocossd', modelLoaded);
+//const ml5 = require('ml5');
 
-function modelLoaded() {
-  console.log('Model Loaded!');
-}
 
-const webcam = document.getElementById('videoElement');
-cocoSSD.detect(webcam, gotResult);
+// const cocoSSD = ml5.objectDetector('cocossd', modelLoaded);
 
-function gotResult(err, results) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log(results);
-}
+// function modelLoaded() {
+//   console.log('Model Loaded!');
+// }
+
+// const webcam = document.getElementById('videoElement');
+// cocoSSD.detect(webcam, gotResult);
+
+// function gotResult(err, results) {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//   console.log(results);
+// }
 
 function startCamera() {
   console.log('someting something');
