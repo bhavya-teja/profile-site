@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as THREE from 'three';
-import CatDetectorService from '../park/services/catdetector/catdetector.service';
+//import CatDetectorService from '../park/services/catdetector/catdetector.service';
 
 
 @Component({
@@ -11,14 +11,6 @@ import CatDetectorService from '../park/services/catdetector/catdetector.service
 export class ParkComponent {
   private cameraFeed: MediaStream;
 
-  constructor() {
-    this.getCameraFeed();
-}
+  constructor() {}
 
-  getCameraFeed() {
-    navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-      this.cameraFeed = stream;
-      CatDetectorService();
-    });
-  }
 }
