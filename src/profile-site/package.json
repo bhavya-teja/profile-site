@@ -26,6 +26,8 @@
     "@material/elevation": "^15.0.0-canary.7971d6ad5.0",
     "@material/theme": "^15.0.0-canary.7971d6ad5.0",
     "@npmcli/fs": "^3.1.0",
+    "@tensorflow-models/blazeface": "^0.0.7",
+    "@tensorflow/tfjs": "^1.7.4",
     "@types/three": "^0.146.0",
     "material-colors": "^1.2.6",
     "material-icons": "^1.13.1",

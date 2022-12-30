@@ -1,5 +1,6 @@
+const { state } = require("@angular/animations");
 
-let status;
+let status = [];
 let objects = [];
 let video = document.querySelector('videoElement');
 let canvas = document.querySelector('canvas');
@@ -47,7 +48,7 @@ function detect() {
     if(objects){
       console.log(objects);
       if (objects) {
-        
+        status = objects;
         objects.forEach(object => {
           if (object.label === 'cat') {
                 alert('Cat(s) Spotted!!');
@@ -107,6 +108,14 @@ const startCamera = () => {
   });
 }
 
+const getCurrentDetections = () => {
+  if (status) {
+    return status;
+  }
+  return []
+}
+
 module.exports = {
-  startCamera
+  startCamera,
+  getCurrentDetections
 };

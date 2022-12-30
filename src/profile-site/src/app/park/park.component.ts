@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 //import * as THREE from 'three';
-import catDetector from '../../cat-detector/cat-detector';
-//import { interval, of, Subscription, switchMap } from 'rxjs';
+import catDetector, { DetectedObject } from '../../cat-detector/cat-detector';
+import { interval, of, Subscription, switchMap } from 'rxjs';
 
 
 @Component({
@@ -10,37 +10,25 @@ import catDetector from '../../cat-detector/cat-detector';
   styleUrls: ['./park.component.scss']
 })
 export class ParkComponent implements OnInit, OnDestroy{
-  //pollingSubscription: Subscription;
+  pollingSubscription: Subscription;
+  detections = [] as Array<DetectedObject>;
 
   constructor() {
     catDetector.startCamera()
   }
   ngOnInit(): void {
-    // this.pollingSubscription = interval(5000) // Poll every 5 seconds
-    //   .pipe(switchMap(() => {
-    //     navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream)=>{
-    //       if (this.videoElement) {
-    //         this.videoElement.srcObject = mediaStream;
-    //       }
-    //       else{
-    //         this.videoElement = document.createElement('video') as HTMLVideoElement;
-    //         this.videoElement.srcObject = mediaStream;
-    //       }
-    //     });
-    //     if (this.videoElement?.readyState === 4) {
-    //       catDetector.detect(this.videoElement);
-    //       of(true);
-    //     }
-    //     else{
-    //       console.log(this.videoElement);
-    //     }
-    //     return of(false);
-    //   })).subscribe((result:boolean)=>{
-    //     console.log('CURRENT STATUS : ' + result);
-    //   })
+    this.pollingSubscription = interval(5000) // Poll every 5 seconds
+      .pipe(switchMap(() => {
+        return of(catDetector.getCurrentDetections());
+      })).subscribe((results: Array<DetectedObject>)=>{
+        if (results.length > 0) {
+          console.log('CURRENT STATUS : ' + results);
+          this.detections = results;
+        }
+      })
   }
   ngOnDestroy(): void {
-    //this.pollingSubscription.unsubscribe();
+    this.pollingSubscription.unsubscribe();
   }
 
 }
