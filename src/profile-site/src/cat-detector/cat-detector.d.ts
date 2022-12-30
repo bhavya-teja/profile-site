@@ -1,5 +1,6 @@
-declare module 'cat-detector'{
-    
-}
-
-export function startCamera(): void;
+export interface CatDetector {
+    startCamera():void;
+  }
+  
+declare const catdetector: CatDetector;
+export default catdetector;  

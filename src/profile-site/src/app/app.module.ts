@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ParkComponent } from './park/park.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import CatDetector from '../cat-detector/cat-detector'
 
 @NgModule({
   declarations: [
