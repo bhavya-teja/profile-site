@@ -5,14 +5,22 @@ let objects = [];
 let video = document.querySelector('videoElement');
 let canvas = document.querySelector('canvas');
 let objectDetector = ml5.objectDetector('cocossd',{}, () => {
-  console.log('cocossd model is loaded!!!');
+  console.debug('cocossd model is loaded!!!');
 })
 let ctx;
 let width = 480;
 let height = 360;
+let errorState = false;
 
 async function make() {
-    video = await getVideo();
+    video = await getVideo().then((video)=>{
+      if (video.paused || video.ended) {
+        errorState = true;
+      }
+    });
+    if (errorState) {
+      return ;
+    }
     objectDetector = await ml5.objectDetector('cocossd', startDetecting)
     //canvas = createCanvas(width, height);
     //ctx = canvas.getContext('2d');
@@ -29,15 +37,20 @@ async function getVideo(){
   videoElement.width = width;
   videoElement.height = height;
   document.body.appendChild(videoElement);
-
-  const capture = await navigator.mediaDevices.getUserMedia({ video: true })
-  videoElement.srcObject = capture;
-  videoElement.play();
-
+  try {
+    const capture = await navigator.mediaDevices.getUserMedia({ video: true });
+    videoElement.srcObject = capture;
+    videoElement.play();
+  } catch (err) {
+    console.log(err);
+  }
   return videoElement
 }
 
 function detect() {
+  if (errorState) {
+    return;
+  }
   objectDetector.detect(video, function(err, results) {
     if(err){
       console.log(err);
@@ -104,6 +117,9 @@ const drawObjects = (objects) =>{
 // exports
 const startCamera = () => {
   make().then(()=>{
+    if (errorState) {
+      return;
+    }
     startDetecting();
   });
 }
