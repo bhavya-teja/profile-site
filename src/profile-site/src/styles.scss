@@ -34,9 +34,6 @@ $profile-site-theme: mat.define-light-theme((
 @include mat.all-component-themes($profile-site-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import 'material-icons/iconfont/material-icons.scss';
-@import '@material-design-icons/font';
-@import 'material-symbols';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -31,7 +31,6 @@
     "@types/three": "^0.146.0",
     "material-colors": "^1.2.6",
     "material-icons": "^1.13.1",
-    "ml5": "^0.12.2",
     "rxjs": "~7.5.0",
     "three": "^0.147.0",
     "tslib": "^2.3.0",
